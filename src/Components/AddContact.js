@@ -2,9 +2,10 @@ import React from 'react'
 import { Button, Form } from 'semantic-ui-react';
 import {useDispatch} from "react-redux";
 import { addItem } from "../JS/Actions/actions";
+import { useState } from 'react';
 
 function AddContact(){
-    const [nam, setName] = useState("");
+    const [name, setName] = useState("");
     const [cin, setCin] = useState("");
     const [number, setNumber] = useState("");
     const dispatch = useDispatch();
@@ -44,6 +45,20 @@ function AddContact(){
                     placeholder="number"
                     name="number"
                     type = "number"
+                    onChange={(e)=>{
+                        setNumber(e.target.value);
+                    }
+                    }
+                    />
+
+                </Form.Field>
+                <Form.Field>
+                    <labe>CIN</labe>
+                    <input 
+                    value={cin}
+                    placeholder="cin"
+                    name="cin"
+                    type = "cin"
                     onChange={(e)=>{
                         setCin(e.target.value);
                     }
